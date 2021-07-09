@@ -7,6 +7,7 @@
 ;;; Code:
 
 (use-package projectile
+  :ensure t
   :init (projectile-mode +1)
   (setq projectile-project-search-path '("~/src/" "~/src/5m/"))
   :bind (:map projectile-mode-map

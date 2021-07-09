@@ -51,16 +51,19 @@
 
 ;; Relative line nums
 (use-package nlinum-relative
+  :ensure t
   :init (setq nlinum-relative-redisplay-delay 0)
   :config (add-hook 'prog-mode-hook 'nlinum-relative-mode))
 
 
 ;; Ace Window
 (use-package ace-window
+  :ensure t
   :bind ("M-p" . ace-window))
 
 ;; Snippets
 (use-package yasnippet
+  :ensure t
   :init (yas-global-mode 1))
 
 ;; Markdown
