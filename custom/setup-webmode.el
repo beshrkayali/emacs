@@ -7,8 +7,9 @@
 
 ;; Webmode
 
-(use-package web-mode
-  :ensure t
+(use-package 
+  web-mode 
+  :ensure t 
   :mode "\\.html$")
 
 

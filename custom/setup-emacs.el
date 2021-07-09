@@ -17,7 +17,8 @@
 
 ;; Minimal warnings wrapping
 (defvar warning-minimum-log-level)
-(setq warning-minimum-log-level :emergency)
+(setq warning-minimum-log-level 
+      :emergency)
 
 ;; Select matching parentheses
 (show-paren-mode 1)
@@ -40,43 +41,49 @@
 
 ;; Font: on thinkpad
 (if (equal (system-name) "atlas") ;; Thinkpad
-    (progn
-      (set-face-attribute 'default nil :family "Fira Mona")
-      (set-face-attribute 'default nil :height 124))
-  (progn
-      (set-face-attribute 'default nil :family "Hack Nerd Font Mono")
-      (set-face-attribute 'default nil :height 151))
-  )
-    
+    (progn (set-face-attribute 'default nil 
+			       :family "Fira Mona") 
+	   (set-face-attribute 'default nil 
+			       :height 124)) 
+  (progn (set-face-attribute 'default nil 
+			     :family "Hack Nerd Font Mono") 
+	 (set-face-attribute 'default nil 
+			     :height 151)))
+
 ;; Smex
-(use-package smex
-  :ensure t
-  :bind (("M-x" . smex))
+(use-package 
+  smex 
+  :ensure t 
+  :bind (("M-x" . smex)) 
   :config (smex-initialize))
 
 ;; Relative line nums
-(use-package nlinum-relative
-  :ensure t
-  :init (setq nlinum-relative-redisplay-delay 0)
+(use-package 
+  nlinum-relative 
+  :ensure t 
+  :init (setq nlinum-relative-redisplay-delay 0) 
   :config (add-hook 'prog-mode-hook 'nlinum-relative-mode))
 
 ;; Ace Window
-(use-package ace-window
-  :ensure t
+(use-package 
+  ace-window 
+  :ensure t 
   :bind ("M-p" . ace-window))
 
 ;; Snippets
-(use-package yasnippet
-  :ensure t
+(use-package 
+  yasnippet 
+  :ensure t 
   :init (yas-global-mode 1))
 
 ;; Markdown
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-	 ("\\.md\\'" . markdown-mode)
-	 ("\\.markdown\\'" . markdown-mode))
+(use-package 
+  markdown-mode 
+  :ensure t 
+  :commands (markdown-mode gfm-mode) 
+  :mode (("README\\.md\\'" . gfm-mode) 
+	 ("\\.md\\'" . markdown-mode) 
+	 ("\\.markdown\\'" . markdown-mode)) 
   :init (setq markdown-command "multimarkdown"))
 
 (message "Setup emacs loaded.")
