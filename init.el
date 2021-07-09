@@ -23,9 +23,7 @@
 			   rainbow-mode
 			   fish-mode
 			   nim-mode
-			   doom-modeline
 			   ample-theme
-			   melancholy-theme
 			   markdown-mode
 			   yaml-mode
 			   hcl-mode
