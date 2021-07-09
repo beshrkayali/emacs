@@ -31,7 +31,6 @@
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (add-hook 'after-init-hook 'global-company-mode)
 
-
 ;; Melpa
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -49,6 +48,10 @@
 			     :family "Hack Nerd Font Mono") 
 	 (set-face-attribute 'default nil 
 			     :height 151)))
+
+;; Save position
+(require 'saveplace)
+(setq-default save-place t)
 
 ;; Smex
 (use-package 
