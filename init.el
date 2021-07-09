@@ -39,7 +39,8 @@
 			   yasnippet-snippets
 			   ag
 			   web-mode
-			   wakatime-mode)) 
+			   wakatime-mode
+			   org-roam)) 
 		      '(warning-suppress-log-types '((comp))))
 
 
