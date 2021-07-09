@@ -48,13 +48,17 @@
       (set-face-attribute 'default nil :height 151))
   )
     
+;; Smex
+(use-package smex
+  :ensure t
+  :bind (("M-x" . smex))
+  :config (smex-initialize))
 
 ;; Relative line nums
 (use-package nlinum-relative
   :ensure t
   :init (setq nlinum-relative-redisplay-delay 0)
   :config (add-hook 'prog-mode-hook 'nlinum-relative-mode))
-
 
 ;; Ace Window
 (use-package ace-window

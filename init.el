@@ -11,7 +11,7 @@
 
 ;; Packages
 ;; tip: instead of package-install, add more packages to list below and run: M-x pa-se Ret
-(custom-set-variables '(package-selected-packages '(helm helm-company ergoemacs-mode ace-window
+(custom-set-variables '(package-selected-packages '(helm helm-company smex ergoemacs-mode ace-window
 							 use-package elisp-format projectile
 							 nlinum-relative rainbow-mode fish-mode
 							 nim-mode doom-modeline ample-theme melancholy-theme
