@@ -7,7 +7,7 @@
 
 
 ;; Describe last thing that just happened
-(defun describe-last-function() 
+(defun bk/describe-last-function() 
   "Describe last func." 
   (interactive) 
   (describe-function last-command))
@@ -25,8 +25,8 @@
 			  t)) 
     (unwind-protect ad-do-it (fset 'one-window-p (symbol-function 'orig-one-window-p)))))
 
-(defun get-content (filename) 
-  "Return the contents of file."
+(defun bk/get-content (filename) 
+  "Return content of a file."
   (with-temp-buffer (insert-file-contents filename) 
 		    (buffer-string)))
 

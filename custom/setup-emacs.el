@@ -38,7 +38,7 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 
-;; Font: on thinkpad
+;; Font
 (if (equal (system-name) "atlas") ;; Thinkpad
     (progn (set-face-attribute 'default nil 
 			       :family "Fira Mona") 
@@ -82,10 +82,12 @@
 ;; Markdown
 (use-package 
   markdown-mode 
-  :ensure t 
+  :ensure t
+  :ensure olivetti
   :commands (markdown-mode gfm-mode) 
-  :mode (("README\\.md\\'" . gfm-mode) 
-	 ("\\.md\\'" . markdown-mode) 
+  :mode (("README\\.md\\'" . gfm-mode)
+	 ("\\.md\\'" . olivetti-mode)
+	 ("\\.md\\'" . markdown-mode)
 	 ("\\.markdown\\'" . markdown-mode)) 
   :init (setq markdown-command "multimarkdown"))
 
