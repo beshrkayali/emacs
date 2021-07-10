@@ -57,7 +57,7 @@
 (use-package 
   smex 
   :ensure t 
-  :bind (("M-x" . smex)) 
+  :bind ("M-x" . smex) 
   :config (smex-initialize))
 
 ;; Relative line nums

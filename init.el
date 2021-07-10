@@ -16,6 +16,7 @@
 	 helm
 	 helm-company
 	 smex
+	 systemd
 	 ace-window
 	 elisp-format
 	 projectile
@@ -40,6 +41,7 @@
 	 wakatime-mode
 	 org-bullets
 	 org-roam
+	 org-roam-server
 	 idle-org-agenda
 	 org-super-agenda
 	 helm-org-rifle
