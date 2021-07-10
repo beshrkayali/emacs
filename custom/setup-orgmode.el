@@ -74,7 +74,7 @@
   :config
   (setq org-capture-templates
 	'(("t" "todo" entry (file+headline (lambda () (concat org-directory "inbox.org")) "Tasks")
-           "* TODO [#A] %?")))
+           "* TODO %?\n  %t\n  %a")))
   )
 
 
