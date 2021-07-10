@@ -17,6 +17,7 @@
 	 helm-company
 	 smex
 	 systemd
+	 caddyfile-mode
 	 ace-window
 	 elisp-format
 	 projectile
