@@ -13,6 +13,7 @@
   "main menu"
   ("o" bk/hydra-org/body "org" )
   ("p" bk/hydra-pomodoro/body "pomodoro" )
+  ("r" bk/hydra-radio/body "radio")
   ("q" quit-window "quit" :color blue))
 
 
@@ -39,6 +40,14 @@
   ("r" (call-process-shell-command "gnome-pomodoro --resume") "resume")
   ("k" (call-process-shell-command "gnome-pomodoro --quit") "kill")
   )
+
+(defhydra bk/hydra-radio (:color teal :hint nil)
+  "radio"
+  ("c" eradio-play "radio play / channel select")
+  ("s" eradio-stop "radio stop")
+  ("p" eradio-toggle "radio pause toggle")
+  )
+
 
 (message "Setup hydra loaded.")
 (provide 'setup-hydra)

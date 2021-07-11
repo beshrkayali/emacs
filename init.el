@@ -48,6 +48,7 @@
 	 helm-org-rifle
 	 makefile-executor
 	 lispy
+	 eradio
 	 magit
 	 hydra))
 
@@ -73,6 +74,7 @@
      (require 'setup-webmode)
      (require 'setup-mumode)   ;; ~/.authinfo.gpg
      (require 'setup-wakatime) ;; ~/.wakakey.gpg
+     (require 'setup-radio)
      (require 'setup-hydra)
      )))
 
