@@ -46,8 +46,10 @@
 	 idle-org-agenda
 	 org-super-agenda
 	 helm-org-rifle
+	 makefile-executor
 	 lispy
-	 magit))
+	 magit
+	 hydra))
 
 (setq warning-suppress-log-types
       '((comp)))
@@ -69,16 +71,16 @@
      (require 'setup-projectile)
      (require 'setup-orgmode)
      (require 'setup-webmode)
-     (require 'setup-mumode)
-     ;; ~/.authinfo.gpg
-     (require 'setup-wakatime)
-     ;; ~/.wakakey.gpg
+     (require 'setup-mumode)   ;; ~/.authinfo.gpg
+     (require 'setup-wakatime) ;; ~/.wakakey.gpg
+     (require 'setup-hydra)
      )))
 
+
 ;; Dev
-(add-to-list
- 'load-path
- "~/src/code/elbin/")
-(use-package elbin)
+;; (add-to-list
+;;  'load-path
+;;  "~/src/code/elbin/")
+;; (use-package elbin)
 
 ;;; init.el ends here

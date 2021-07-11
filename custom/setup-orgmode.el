@@ -8,8 +8,8 @@
 (setq org-directory "~/Nextcloud/org/")
 (setq org-log-done t)
 (setq org-agenda-files (list (concat org-directory "inbox.org") 
-			     (concat org-directory "home.todo.org") 
-			     (concat org-directory "work.todo.org")))
+			     (concat org-directory "agenda-files/home.todo.org") 
+			     (concat org-directory "agenda-files/work.todo.org")))
 
 
 (use-package org-bullets
@@ -69,13 +69,76 @@
 	  (search category-keep)))) )
 
 
-(use-package org
+
+(defun bk/assert-todo-header ()
+  (when (zerop (buffer-size))
+    (insert (concat "#+SEQ_TODO: TODO(t) IN-PROGRESS(i) DONE(d)\n"
+                    "#+STARTUP: showall\n\n"))))
+
+(defun bk/projectile-current-todo-org (headline)
+  (set-buffer (org-capture-target-buffer (concat (projectile-project-root)
+                                                 "todo.org")))
+  (org-capture-put-target-region-and-position)
+  (widen)
+  (goto-char (point-min))
+  (bk/assert-todo-header)
+  (if (re-search-forward (format org-complex-heading-regexp-format
+                                 (regexp-quote headline))
+                         nil t)
+      (beginning-of-line)
+    (goto-char (point-max))
+    (unless (bolp) (insert "\n"))
+    (insert "* " headline "\n")
+    (beginning-of-line 0)))
+
+
+(use-package
+  org
   :bind (("C-c c" . 'org-capture))
-  :config
-  (setq org-capture-templates
-	'(("t" "todo" entry (file+headline (lambda () (concat org-directory "inbox.org")) "Tasks")
-           "* TODO %?\n  %t\n  %a")))
-  )
+  :config (setq org-capture-templates
+		'(("t"
+		   "Task"
+		   entry
+		   (file+headline
+		    (concat
+		     org-directory
+		     "inbox.org")
+		    "incoming.org"
+		    "Incoming tasks")
+		   "* TODO %^{Description}
+:LOGBOOK:
+- Added: %U
+:END:
+%?
+"
+		   :empty-lines-before 0)
+		  ("p"
+		   "Project TODO"
+		   entry
+		   (function
+		    (lambda ()
+		      (bk/projectile-current-todo-org
+		       "Todos")))
+		   "* TODO %^{Description}
+:LOGBOOK:
+- Added: %U
+:END:
+%?
+"
+		   :empty-lines-before 0)
+		  ("n"
+		   "Note"
+		   entry
+		   (file+headline
+		    "notes.org"
+		    "Notes")
+		   "* %^{Description}
+:LOGBOOK:
+- Added: %U
+:END:
+%?
+"
+		   :empty-lines-before 0))))
 
 
 (use-package org-rifle
