@@ -73,6 +73,11 @@
   :ensure t 
   :bind ("M-p" . ace-window))
 
+;; Makefile executor
+(use-package makefile-executor
+  :config
+  (add-hook 'makefile-mode-hook 'makefile-executor-mode))
+
 ;; Snippets
 (use-package 
   yasnippet 
