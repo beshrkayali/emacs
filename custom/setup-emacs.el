@@ -39,15 +39,26 @@
 
 
 ;; Font
-(if (equal (system-name) "atlas") ;; Thinkpad
-    (progn (set-face-attribute 'default nil 
-			       :family "CaskaydiaCove Nerd Font Mono") 
-	   (set-face-attribute 'default nil 
-			       :height 124)) 
-  (progn (set-face-attribute 'default nil 
-			     :family "CaskaydiaCove Nerd Font Mono") 
-	 (set-face-attribute 'default nil 
-			     :height 155)))
+(if (equal (system-name) "atlas")
+    ;; Thinkpad
+    (progn
+      (set-face-attribute
+       'default
+       nil
+       :family "CaskaydiaCove Nerd Font Mono")
+      (set-face-attribute
+       'default
+       nil
+       :height 100))
+  (progn
+    (set-face-attribute
+     'default
+     nil
+     :family "CaskaydiaCove Nerd Font Mono")
+    (set-face-attribute
+     'default
+     nil
+     :height 155)))
 
 ;; Save position
 (require 'saveplace)

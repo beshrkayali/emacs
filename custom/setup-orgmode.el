@@ -33,6 +33,9 @@
 	  (?B . (:foreground "LightSteelBlue"))
 	  (?C . (:foreground "OliveDrab"))))
 
+  ;; Keep my windows please
+  (setq org-agenda-window-setup 'current-window) 
+
   (defun air-org-skip-subtree-if-priority (priority) 
     "Skip an agenda subtree if it has a priority of PRIORITY.PRIORITY may be one of the characters ?A, ?B, or ?C."
     (let ((subtree-end (save-excursion (org-end-of-subtree t))) 
