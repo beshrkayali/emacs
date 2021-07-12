@@ -10,7 +10,8 @@
 (use-package 
   web-mode 
   :ensure t 
-  :mode "\\.html$")
+  :mode "\\.html$"
+  :mode "\\.svelte$")
 
 
 (message "Setup webmode loaded.")
