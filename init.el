@@ -50,7 +50,8 @@
 	 lispy
 	 eradio
 	 magit
-	 hydra))
+	 hydra
+	 deft))
 
 (setq warning-suppress-log-types
       '((comp)))

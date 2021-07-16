@@ -157,8 +157,9 @@
   org-roam
   :hook (after-init . org-roam-mode)
   :custom (org-roam-directory
-	   (file-truename
-	    "~/Nextcloud/org/org-roam"))
+	   (concat
+	    org-directory
+	    "org-roam"))
   (org-roam-buffer-position
    'bottom)
   :bind (:map org-roam-mode-map
@@ -187,6 +188,17 @@
         org-roam-server-network-label-truncate-length 60
         org-roam-server-network-label-wrap-length 20))
 
+(use-package
+  deft
+  :after org
+  :bind ("C-c n d" . deft)
+  :custom (deft-recursive t)
+  (deft-use-filter-string-for-filename t)
+  (deft-default-extension "org")
+  (deft-directory
+    (concat
+     org-directory
+     "org-roam")))
 
 (message "Setup orgmode loaded.")
 (provide 'setup-orgmode)
