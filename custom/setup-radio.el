@@ -26,6 +26,8 @@
      ("BBC 4" . "http://open.live.bbc.co.uk/mediaselector/5/select/version/2.0/mediaset/http-icy-mp3-a/vpid/bbc_radio_fourfm/format/pls.pls")
      ("BBC 4 Xtra" . "http://open.live.bbc.co.uk/mediaselector/5/select/version/2.0/mediaset/http-icy-mp3-a/vpid/bbc_radio_four_extra/format/pls.pls")
 
+     ("No Agenda" . "http://listen.noagendastream.com/noagenda")
+
      ("OEM Radio" . "https://rosetta.shoutca.st/tunein/oemradio.pls")
 
      ("Psyradio Prog" . "http://streamer.psyradio.org:8010/listen.pls")
