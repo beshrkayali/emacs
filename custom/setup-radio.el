@@ -43,7 +43,7 @@
      ("Cyberia - lainon" . "https://lainon.life/radio/cyberia.ogg.m3u")
      ("Cafe - lainon" . "https://lainon.life/radio/cafe.ogg.m3u")
      ("Swing - laion" . "https://lainon.life/radio/swing.mp3.m3u")
-     
+     ("Sawt - Arabic indie music" . "https://stream.sawt.io/play")
      )))
 
 (message "Setup radio loaded.")

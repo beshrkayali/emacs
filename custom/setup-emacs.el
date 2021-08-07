@@ -37,6 +37,12 @@
 (package-initialize)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
+;; Make things a bit faster
+(setq inhibit-compacting-font-caches t)
+(setq auto-window-vscroll nil)
+
+;; Avoid performance issues in files with very long lines.
+(global-so-long-mode 1)
 
 ;; Font
 (if (equal (system-name) "atlas")
@@ -45,7 +51,7 @@
       (set-face-attribute
        'default
        nil
-       :family "CaskaydiaCove Nerd Font Mono")
+       :family "Cascadia Code")
       (set-face-attribute
        'default
        nil
@@ -54,22 +60,27 @@
     (set-face-attribute
      'default
      nil
-     :family "CaskaydiaCove Nerd Font Mono")
+     :family "Cascadia Code")
     (set-face-attribute
      'default
      nil
      :height 155)))
+
+
+(use-package unicode-fonts
+  :init (unicode-fonts-setup))
+
 
 ;; Save position
 (require 'saveplace)
 (setq-default save-place t)
 
 ;; Smex
-(use-package 
-  smex 
-  :ensure t 
-  :bind ("M-x" . smex) 
-  :config (smex-initialize))
+;; (use-package 
+;;   smex 
+;;   :ensure t 
+;;   :bind ("M-x" . smex) 
+;;   :config (smex-initialize))
 
 ;; Relative line nums
 (use-package 

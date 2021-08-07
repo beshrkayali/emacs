@@ -6,11 +6,17 @@
 ;;; Code:
 
 (setq org-directory "~/Nextcloud/org/")
-(setq org-log-done t)
-(setq org-agenda-files (list (concat org-directory "inbox.org") 
-			     (concat org-directory "agenda-files/home.todo.org") 
-			     (concat org-directory "agenda-files/work.todo.org")))
+(setq org-inbox (concat org-directory "inbox.org"))
+(setq org-notes (concat org-directory "notes.org"))
+(setq org-home-todo (concat org-directory "agenda-files/home.todo.org"))
+(setq org-work-todo (concat org-directory "agenda-files/work.todo.org"))
 
+(setq org-default-notes-file org-notes)
+
+(setq org-log-done t)
+(setq org-agenda-files (list org-inbox
+			     org-home-todo 
+			     org-work-todo))
 
 (use-package org-bullets
   :config
@@ -103,10 +109,7 @@
 		   "Task"
 		   entry
 		   (file+headline
-		    (concat
-		     org-directory
-		     "inbox.org")
-		    "incoming.org"
+		    org-inbox
 		    "Incoming tasks")
 		   "* TODO %^{Description}
 :LOGBOOK:
@@ -144,8 +147,8 @@
 		   :empty-lines-before 0))))
 
 
-(use-package org-rifle
-  :bind (("C-c r" . 'helm-org-rifle-agenda-files)))
+;; (use-package org-rifle
+;;   :bind (("C-c r" . 'helm-org-rifle-agenda-files)))
 
 (use-package idle-org-agenda
   :after org-agenda
@@ -199,6 +202,46 @@
     (concat
      org-directory
      "org-roam")))
+
+
+;; Latex
+
+(setq org-latex-pdf-process
+      '("latexmk -pdflatex='pdflatex -interaction nonstopmode' -pdf -bibtex -f %f"))
+
+
+(unless (boundp 'org-latex-classes)
+  (setq org-latex-classes nil))
+
+(add-to-list
+ 'org-latex-classes
+ '("arabook"
+   "\\documentclass[11pt, oneside]{memoir}
+\\usepackage{fontspec}
+\\usepackage{xunicode}
+\\newfontfamily\\arabicfont{Behdad}
+\\setstocksize{9in}{6in}
+\\settrimmedsize{\\stockheight}{\\stockwidth}{*}
+\\setlrmarginsandblock{2cm}{2cm}{*} % Left and right margin
+\\setulmarginsandblock{2cm}{2cm}{*} % Upper and lower margin
+\\checkandfixthelayout
+% Much more laTeX code omitted
+"
+   ("\\chapter{%s}" . "\\chapter*{%s}")
+   ("\\section{%s}" . "\\section*{%s}")
+   )
+ )
+
+(setq org-latex-pdf-process
+      '("latexmk -pdflatex='xelatex -interaction nonstopmode' -pdf -bibtex -f %f"))
+
+(setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
+
+(defun set-bidi-env ()
+  "interactive"
+  (setq bidi-paragraph-direction 'nil))
+(add-hook 'org-mode-hook 'set-bidi-env)
+
 
 (message "Setup orgmode loaded.")
 (provide 'setup-orgmode)

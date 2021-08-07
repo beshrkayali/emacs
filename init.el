@@ -39,19 +39,25 @@
 	 yasnippet-snippets
 	 ag
 	 web-mode
+	 prettier-js
 	 wakatime-mode
 	 org-bullets
 	 org-roam
 	 org-roam-server
 	 idle-org-agenda
 	 org-super-agenda
-	 helm-org-rifle
+	 ;; helm-org-rifle
 	 makefile-executor
 	 lispy
 	 eradio
 	 magit
 	 hydra
-	 deft))
+	 deft
+	 tuareg
+	 typescript-mode
+	 unicode-fonts
+	 auctex
+	 ))
 
 (setq warning-suppress-log-types
       '((comp)))
@@ -77,6 +83,7 @@
      (require 'setup-wakatime) ;; ~/.wakakey.gpg
      (require 'setup-radio)
      (require 'setup-hydra)
+     (require 'setup-latex)
      )))
 
 
