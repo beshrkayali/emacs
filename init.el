@@ -40,7 +40,7 @@
 	 ag
 	 web-mode
 	 prettier-js
-	 wakatime-mode
+	 ;; wakatime-mode
 	 org-bullets
 	 org-roam
 	 org-roam-server
@@ -86,7 +86,7 @@
      (require 'setup-orgmode)
      (require 'setup-webmode)
      (require 'setup-mumode)   ;; ~/.authinfo.gpg
-     (require 'setup-wakatime) ;; ~/.wakakey.gpg
+     ;;(require 'setup-wakatime) ;; ~/.wakakey.gpg
      (require 'setup-radio)
      (require 'setup-hydra)
      (require 'setup-latex)
