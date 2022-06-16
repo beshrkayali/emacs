@@ -60,6 +60,8 @@
 	 dockerfile-mode
 	 docker-compose-mode
 	 meson-mode
+	 subatomic-theme
+	 white-theme
 	 ))
 
 (setq warning-suppress-log-types
